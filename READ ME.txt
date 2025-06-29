@@ -1,0 +1,17 @@
+1)  cd Desktop/webrtc-app
+ node server.js
+
+
+2)
+ngroku terminalde çalıştır
+
+cd Desktop
+.\ngrok http --domain=mature-goshawk-chief.ngrok-free.app 3000
+
+
+
+
+c# için
+
+
+PS C:\Users\Aydin\Desktop\VideoChat> dotnet run

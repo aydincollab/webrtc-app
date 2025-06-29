@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Notification Container -->
+    <div class="notification-container"></div>
+
+    <!-- Giris Ekrani -->
+    <div id="joinScreen" class="screen">
+        <div class="join-container">
+            <h1>Video Chat</h1>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Adiniz">
+                <input type="text" id="roomId" placeholder="Oda ID">
+            </div>
+            <button id="joinBtn" class="primary-btn">
+                <i class="fas fa-sign-in-alt"></i> Giris Yap
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Ekrani -->
+    <div id="chatScreen" class="screen hidden">
+        <div class="chat-container">
+            <!-- Video Grid -->
+            <div class="video-grid">
+                <div class="video-card">
+                    <video id="localVideo" autoplay muted playsinline></video>
+                    <div class="video-overlay">
+                        <span class="name-tag">Sen</span>
+                        <div class="media-status">
+                            <span class="mic-status">
+                                <i class="fas fa-microphone"></i>
+                            </span>
+                            <span class="video-status">
+                                <i class="fas fa-video"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video id="remoteVideo" autoplay playsinline></video>
+                    <div class="video-overlay">
+                        <span class="name-tag">Bekleniyor...</span>
+                        <div class="media-status">
+                            <span class="mic-status">
+                                <i class="fas fa-microphone-slash"></i>
+                            </span>
+                            <span class="video-status">
+                                <i class="fas fa-video"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontrol Paneli -->
+            <div class="controls">
+                <button id="toggleAudio" class="control-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="toggleVideo" class="control-btn">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button id="leaveBtn" class="control-btn danger">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+            </div>
+
+            <!-- Chat Bolumu -->
+            <div class="chat-sidebar">
+                <div class="chat-messages" id="messages"></div>
+                <div class="typing-indicator" id="typingIndicator"></div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Mesaj yaz...">
+                    <button id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
